@@ -74,7 +74,6 @@ char * shellReadline( const char * prompt , int handlesigint = 0 ){
         return readline( prompt );
     if ( setjmp( jbuf ) ){
         gotInterrupted = 1;
-        sigrelse(SIGINT);
         signal( SIGINT , quitNicely );
         return 0;
     }
